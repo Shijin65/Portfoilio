@@ -1,0 +1,61 @@
+.contactItem{
+    position: relative;
+    width: 350px;
+    height: 200px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.contactInput{
+    width: 350px;
+
+}
+
+.contactContainer{
+    width: 95% !important;
+}
+@media screen and (max-width: 790px) {
+    
+    .contactForm{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 100px;
+    }
+    .contactItem{
+        position: relative;
+        width: 280px;
+        height: 200px;
+        overflow-y: scroll;
+        text-align: center;
+    }
+    
+    .contactInput{
+        width: 280px;
+        
+    }
+    
+  }
+  
+  .contactMask{
+    
+    background-color: rgba(0,0,0,.8);
+    /* animation: fadeIn .2s forwards;
+    opacity: 0; */
+    transition: .2s;
+  }
+  @keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+  }
+
+  .copyPaste{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
