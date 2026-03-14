@@ -10,7 +10,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@lancedb/lancedb": "^0.26.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.31.0",
     "groq-sdk": "^1.1.1",
