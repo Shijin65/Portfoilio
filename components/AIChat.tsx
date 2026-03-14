@@ -183,70 +183,80 @@ export default function AIChat() {
 
                             {/* Input Area */}
                             <div className="p-3 sm:p-4 border-t border-slate-100 dark:border-slate-800/60 bg-white dark:bg-[#0f172a]">
-                                <form onSubmit={ask} className="flex relative bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-700 rounded-xl focus-within:ring-2 focus-within:ring-blue-500 transition-shadow">
-                                    <div ref={dropdownRef} className="relative flex items-center border-r border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-l-xl w-[110px] sm:w-[130px] shrink-0">
-                                        <button
-                                            type="button"
-                                            onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
-                                            className="appearance-none bg-transparent text-xs py-3 pl-3 pr-8 focus:outline-none text-slate-700 dark:text-slate-300 font-medium cursor-pointer w-full h-full text-left truncate relative"
-                                            disabled={isLoading}
-                                        >
-                                            {model === "inbuild" ? "In Build" : "Llama"}
-                                            <ChevronDown size={14} className={`absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none transition-transform ${isModelDropdownOpen ? 'rotate-180' : ''}`} />
-                                        </button>
+                                <form onSubmit={ask} className="flex flex-col sm:flex-row relative bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-700 rounded-xl focus-within:ring-2 focus-within:ring-blue-500 transition-shadow">
+                                    <div className="order-2 sm:order-1 flex justify-between items-center border-t sm:border-t-0 sm:border-r border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 sm:hover:bg-slate-100 sm:dark:hover:bg-slate-800 transition-colors sm:rounded-l-xl rounded-b-xl sm:rounded-br-none w-full sm:w-[130px] shrink-0 p-1 sm:p-0">
+                                        <div ref={dropdownRef} className="relative flex-1 sm:h-full group">
+                                            <button
+                                                type="button"
+                                                onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
+                                                className="appearance-none bg-transparent text-xs py-2 sm:py-3 pl-3 pr-8 focus:outline-none text-slate-700 dark:text-slate-300 font-medium cursor-pointer w-full h-full text-left truncate relative rounded-lg group-hover:bg-slate-200/50 dark:group-hover:bg-slate-700/50 sm:group-hover:bg-transparent transition-colors"
+                                                disabled={isLoading}
+                                            >
+                                                {model === "inbuild" ? "In Build" : "Llama"}
+                                                <ChevronDown size={14} className={`absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none transition-transform ${isModelDropdownOpen ? 'rotate-180' : ''}`} />
+                                            </button>
 
-                                        <AnimatePresence>
-                                            {isModelDropdownOpen && (
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                                    transition={{ duration: 0.15 }}
-                                                    className="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden z-50 p-1.5"
-                                                >
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => {
-                                                            if (model !== "inbuild") {
-                                                                setModel("inbuild");
-                                                                if (messages.length > 0) setMessages([]);
-                                                            }
-                                                            setIsModelDropdownOpen(false);
-                                                        }}
-                                                        className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors flex items-center justify-between ${model === "inbuild" ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'}`}
+                                            <AnimatePresence>
+                                                {isModelDropdownOpen && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                        transition={{ duration: 0.15 }}
+                                                        className="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden z-50 p-1.5"
                                                     >
-                                                        In Build
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => {
-                                                            if (model !== "llama") {
-                                                                setModel("llama");
-                                                                if (messages.length > 0) setMessages([]);
-                                                            }
-                                                            setIsModelDropdownOpen(false);
-                                                        }}
-                                                        className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors flex flex-col gap-0.5 mt-1 ${model === "llama" ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'}`}
-                                                    >
-                                                        <span>Llama</span>
-                                                        <span className={`text-[10px] ${model === "llama" ? "text-blue-500/80 dark:text-blue-400/80" : "text-slate-500"} font-normal`}>llama-3.3-70b-versatile</span>
-                                                    </button>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                if (model !== "inbuild") {
+                                                                    setModel("inbuild");
+                                                                    if (messages.length > 0) setMessages([]);
+                                                                }
+                                                                setIsModelDropdownOpen(false);
+                                                            }}
+                                                            className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors flex items-center justify-between ${model === "inbuild" ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'}`}
+                                                        >
+                                                            In Build
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                if (model !== "llama") {
+                                                                    setModel("llama");
+                                                                    if (messages.length > 0) setMessages([]);
+                                                                }
+                                                                setIsModelDropdownOpen(false);
+                                                            }}
+                                                            className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors flex flex-col gap-0.5 mt-1 ${model === "llama" ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'}`}
+                                                        >
+                                                            <span>Llama</span>
+                                                            <span className={`text-[10px] ${model === "llama" ? "text-blue-500/80 dark:text-blue-400/80" : "text-slate-500"} font-normal`}>llama-3.3-70b-versatile</span>
+                                                        </button>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+
+                                        <button
+                                            type="submit"
+                                            disabled={isLoading || !question.trim()}
+                                            className="sm:hidden w-8 h-8 mr-1 bg-blue-600 text-white rounded-lg flex items-center justify-center disabled:opacity-50 disabled:bg-slate-300 dark:disabled:bg-slate-700 hover:bg-blue-700 transition-colors shrink-0"
+                                        >
+                                            <Send size={14} className="ml-0.5" />
+                                        </button>
                                     </div>
                                     <input
                                         type="text"
                                         value={question}
                                         onChange={(e) => setQuestion(e.target.value)}
                                         placeholder="Message AI..."
-                                        className="flex-1 bg-transparent py-3 pl-3 pr-12 focus:outline-none text-sm dark:text-white"
+                                        className="order-1 sm:order-2 flex-1 w-full bg-transparent py-3 px-3 sm:pr-14 focus:outline-none text-sm dark:text-white"
                                         disabled={isLoading}
                                     />
                                     <button
                                         type="submit"
                                         disabled={isLoading || !question.trim()}
-                                        className="absolute right-1.5 top-1.5 bottom-1.5 w-10 bg-blue-600 text-white rounded-lg flex items-center justify-center disabled:opacity-50 disabled:bg-slate-300 dark:disabled:bg-slate-700 hover:bg-blue-700 transition-colors"
+                                        className="hidden sm:flex absolute right-1.5 top-1.5 bottom-1.5 w-10 bg-blue-600 text-white rounded-lg items-center justify-center disabled:opacity-50 disabled:bg-slate-300 dark:disabled:bg-slate-700 hover:bg-blue-700 transition-colors shrink-0"
                                     >
                                         <Send size={16} className="ml-0.5" />
                                     </button>
