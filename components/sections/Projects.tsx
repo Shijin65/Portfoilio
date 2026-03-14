@@ -40,7 +40,7 @@ export default function Projects() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="text-5xl font-black mb-6"
+                            className="text-4xl font-black mb-6"
                         >
                             Selected <span className="text-gradient">Projects</span>
                         </motion.h2>
@@ -49,7 +49,7 @@ export default function Projects() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-slate-400 text-xl"
+                            className="text-slate-400 text-lg"
                         >
                             A showcase of my recent work in web development, ranging from frontend experiments to full-stack applications.
                         </motion.p>
@@ -63,7 +63,7 @@ export default function Projects() {
                         viewport={{ once: true }}
                         className="flex items-center gap-2 text-blue-400 hover:text-blue-300 font-bold transition-all border-b-2 border-blue-400/20 pb-2 hover:border-blue-400 group"
                     >
-                        View More on GitHub <Github className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                        View More on GitHub <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                     </motion.a>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -72,13 +72,14 @@ export default function Projects() {
                             key={idx}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -10 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
                             className="group bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-500"
                         >
                             <div className="relative h-56 bg-slate-800 overflow-hidden">
                                 <div className="absolute inset-0 bg-blue-600/20 group-hover:bg-blue-600/0 transition-colors duration-500 flex items-center justify-center">
-                                    <Code className="w-12 h-12 text-blue-500/50 group-hover:scale-110 transition-transform duration-500" />
+                                    <Code className="w-10 h-10 text-blue-500/50 group-hover:scale-110 transition-transform duration-500" />
                                 </div>
                                 {/* Image overlay for buttons */}
                                 <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent flex gap-3">
@@ -92,7 +93,7 @@ export default function Projects() {
                             </div>
 
                             <div className="p-8">
-                                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{project.title}</h3>
+                                <h3 className="text-lg font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{project.title}</h3>
                                 <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
                                     {project.description}
                                 </p>

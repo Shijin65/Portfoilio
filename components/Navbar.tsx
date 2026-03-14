@@ -16,8 +16,8 @@ export default function Navbar() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 px-6 py-8 pointer-events-none">
-            <nav className="max-w-6xl mx-auto glass rounded-full px-8 py-4 flex items-center justify-between pointer-events-auto border border-white/10 shadow-2xl backdrop-blur-xl relative">
+        <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
+            <nav className="max-w-6xl mx-auto glass rounded-full px-6 py-2.5 flex items-center justify-between pointer-events-auto border border-white/10 shadow-2xl backdrop-blur-xl relative">
                 {/* Logo */}
                 <a href="#hero" className="text-white font-black tracking-tighter text-2xl hover:text-blue-400 transition-all transform hover:scale-110">
                     SP<span className="text-blue-500">.</span>
@@ -40,7 +40,7 @@ export default function Navbar() {
                 <div className="hidden md:block">
                     <a
                         href="#contact"
-                        className="group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-black px-6 py-3 rounded-full transition-all hover:scale-110 active:scale-95 shadow-lg shadow-blue-600/20 uppercase tracking-tight"
+                        className="group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-black px-5 py-2.5 rounded-full transition-all hover:scale-110 active:scale-95 shadow-lg shadow-blue-600/20 uppercase tracking-tight"
                     >
                         Contact Me <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
@@ -51,7 +51,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(!isOpen)}
                     className="md:hidden p-2 text-white hover:text-blue-400 transition-colors"
                 >
-                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
 
                 {/* Mobile Navigation Overlay */}

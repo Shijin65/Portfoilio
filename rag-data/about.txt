@@ -1,0 +1,7 @@
+Name: Shijin Puthur
+
+Shijin is a software engineer specializing in full-stack web development.
+
+He mainly works with Next.js, React, Node.js and PostgreSQL. His focus is on building scalable applications with clean architecture and efficient backend systems.
+
+He enjoys building modern web applications, experimenting with AI integrations, and improving user experience through well designed interfaces.

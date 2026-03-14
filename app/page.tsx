@@ -7,6 +7,7 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 import Contact from "@/components/sections/Contact";
+import AIChat from "@/components/AIChat";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <Projects />
       <Services />
       <Contact />
-
+      <AIChat />
       <footer className="py-12 border-t border-slate-900 bg-darker">
         <div className="container mx-auto px-6 text-center">
           <div className="text-2xl font-black mb-4 tracking-tighter">
