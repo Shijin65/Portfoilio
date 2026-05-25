@@ -1,0 +1,22 @@
+Technical Skills of Shijin
+
+Frontend:
+Next.js
+React
+JavaScript
+Tailwind CSS
+Material UI
+
+Backend:
+Node.js
+Express.js
+
+Database:
+PostgreSQL
+Sequelize ORM
+
+Other Skills:
+REST API development
+Role Based Access Control (RBAC)
+Real-time systems using Socket.IO
+System architecture design

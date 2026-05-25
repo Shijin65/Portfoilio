@@ -1,0 +1,9 @@
+Professional Experience
+
+Shijin works as a software engineer building internal systems and web applications.
+
+He has worked on broadcast related software systems used by TV production teams.
+
+His work includes designing backend APIs, implementing role based user systems, and developing modern web interfaces using React and Next.js.
+
+He focuses on creating reliable systems that support complex workflows and multi user collaboration.

@@ -8,6 +8,7 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import { Github, Linkedin, Mail } from "lucide-react";
+import AIChat from "@/components/AIChat";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
-
+      <AIChat />
       <footer className="py-12 border-t border-white/10 bg-black">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
           <div className="text-xl font-black mb-4 md:mb-0 tracking-tighter text-white">
