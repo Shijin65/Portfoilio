@@ -1,86 +1,146 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code2, Rocket, Heart } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Code2, Server, ShieldCheck, Cloud } from "lucide-react";
 
-const stats = [
-    { label: "Experience", value: "2+ Years", icon: Rocket },
-    { label: "Expertise", value: "Full Stack", icon: Code2 },
-    { label: "Projects", value: "10+", icon: Heart },
-];
+// CountUp hook
+function useCountUp(end: number, duration: number = 2000, startOnView: boolean = true) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current && startOnView) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted, startOnView]);
+
+  useEffect(() => {
+    if (!hasStarted && startOnView) return;
+
+    let startTime: number | null = null;
+    const animateCount = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      
+      // Easing function
+      const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
+      setCount(Math.floor(easeOutQuart * end));
+
+      if (percentage < 1) {
+        requestAnimationFrame(animateCount);
+      }
+    };
+
+    requestAnimationFrame(animateCount);
+  }, [end, duration, hasStarted, startOnView]);
+
+  return { count, ref };
+}
+
+const StatCard = ({ end, suffix = "", label, delay = 0 }: { end: number, suffix?: string, label: string, delay?: number }) => {
+  const { count, ref } = useCountUp(end);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors"
+    >
+      <div ref={ref} className="text-4xl md:text-5xl font-bold text-white mb-2">
+        {count}{suffix}
+      </div>
+      <div className="text-sm text-slate-400 font-medium">{label}</div>
+    </motion.div>
+  );
+};
+
+const ExpertiseCard = ({ icon: Icon, title, desc, delay = 0 }: { icon: React.ElementType, title: string, desc: string, delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+    className="p-6 rounded-2xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-blue-500/50 transition-colors group"
+  >
+    <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all">
+      <Icon className="w-6 h-6" />
+    </div>
+    <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+    <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+  </motion.div>
+);
 
 export default function About() {
-    return (
-        <section id="about" className="py-20 sm:py-32 bg-darker overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-20">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="lg:w-1/2"
-                    >
-                        <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative bg-dark rounded-3xl p-8 sm:p-14 border border-slate-800">
-                                <div className="flex items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
-                                    <div className="p-3 sm:p-4 bg-blue-500/10 rounded-2xl">
-                                        <User className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500" />
-                                    </div>
-                                    <h2 className="text-3xl sm:text-4xl font-bold">About Me</h2>
-                                </div>
+  return (
+    <section id="about" className="py-24 bg-black relative">
+      <div className="container mx-auto px-6">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">About Me</h2>
+          <p className="text-lg text-slate-400 leading-relaxed">
+            I am a Software Engineer currently building real-time solutions at <span className="text-blue-400 font-medium">Empress Cybernetic Systems</span>. With over 2 years of professional experience, I specialize in full-stack architecture, focusing on scalable performance and secure deployments.
+          </p>
+        </motion.div>
 
-                                <p className="text-slate-400 text-lg sm:text-xl leading-relaxed mb-6 sm:mb-8">
-                                    I am <span className="text-white font-medium">Shijin Puthur</span>, a passionate and tech-enthusiast self-taught developer.
-                                    My journey began with a curiosity for how things work on the web, which led me to dive deep into modern technologies.
-                                    Currently, I specialize in the <span className="text-white font-medium">MERN Stack</span> and <span className="text-white font-medium">Next.js</span>,
-                                    building scalable and user-centric web applications. I love tackling complex problems and turning ideas into reality through elegant code.
-                                </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-20">
+          <StatCard end={2} suffix="+" label="Years Experience" delay={0.1} />
+          {/* <StatCard end={10} suffix="+" label="Projects" delay={0.2} /> */}
+          <StatCard end={5} suffix="+" label="Technologies" delay={0.3} />
+          <StatCard end={100} suffix="%" label="Passion" delay={0.4} />
+        </div>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                                    {stats.map((stat, index) => (
-                                        <div key={index} className="text-center p-4 rounded-2xl bg-slate-800/30 border border-slate-700/30 hover:border-blue-500/30 transition-colors">
-                                            <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 mx-auto mb-2" />
-                                            <div className="text-xl sm:text-2xl font-bold text-white">{stat.value}</div>
-                                            <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest">{stat.label}</div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-white mb-8">Core Expertise</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ExpertiseCard 
+              icon={Server} 
+              title="Real-time Systems" 
+              desc="Building scalable websockets and live features with Socket.IO and Next.js." 
+              delay={0.1} 
+            />
+            <ExpertiseCard 
+              icon={ShieldCheck} 
+              title="Authentication" 
+              desc="Implementing secure JWT, SSO, and RBAC strategies for modern applications." 
+              delay={0.2} 
+            />
+            <ExpertiseCard 
+              icon={Code2} 
+              title="Full-stack Architecture" 
+              desc="Designing robust end-to-end solutions using the MERN stack and Next.js." 
+              delay={0.3} 
+            />
+            <ExpertiseCard 
+              icon={Cloud} 
+              title="Cloud Deployment" 
+              desc="Automating CI/CD workflows and deploying infrastructure on AWS." 
+              delay={0.4} 
+            />
+          </div>
+        </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="lg:w-1/2 space-y-8"
-                    >
-                        <div>
-                            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                <span className="w-8 h-[2px] bg-blue-500 inline-block"></span>
-                                My Philosophy
-                            </h3>
-                            <p className="text-slate-400 text-lg leading-relaxed">
-                                I believe that great software is not just about writing code, but about solving
-                                real-world problems and creating seamless experiences. I am constantly learning
-                                and evolving, staying up-to-date with the latest industry trends.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                                <h4 className="font-bold mb-2">Self-Taught</h4>
-                                <p className="text-sm text-slate-400 text-balance">Built strong foundations through continuous learning and practical building.</p>
-                            </div>
-                            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                                <h4 className="font-bold mb-2">Tech Enthusiast</h4>
-                                <p className="text-sm text-slate-400 text-balance">Always exploring new tools and frameworks to stay at the cutting edge.</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }
