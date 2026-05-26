@@ -1,7 +1,29 @@
-Name: Shijin Puthur
+About
 
-Shijin is a software engineer specializing in full-stack web development.
+Shijin Puthur is a Full-Stack Software Engineer focused on building scalable web applications and internal business systems. He specializes in modern JavaScript ecosystems with strong expertise in Next.js, React, Node.js, and PostgreSQL.
 
-He mainly works with Next.js, React, Node.js and PostgreSQL. His focus is on building scalable applications with clean architecture and efficient backend systems.
+His experience spans frontend development, backend architecture, database design, and real-time systems for multi-user applications. He enjoys building systems with clean architecture, maintainable code structure, and performance-focused designs.
 
-He enjoys building modern web applications, experimenting with AI integrations, and improving user experience through well designed interfaces.
+Shijin has worked on production-grade applications used in operational and broadcast environments where reliability, user roles, and complex workflows are critical. His work often involves designing APIs, implementing secure authentication systems, and building interfaces that improve productivity and user experience.
+
+He actively explores AI-assisted workflows and modern development tools to accelerate development, automate repetitive tasks, and improve engineering efficiency.
+
+Areas of interest include:
+
+Full-stack application development
+Real-time collaborative systems
+AI integrations and productivity tools
+System architecture design
+Scalable backend systems
+User experience and modern interfaces
+
+---------------------------------------------------------------------------------
+
+Professional Highlights
+2+ years of experience in full-stack development
+Built production-grade systems from architecture to deployment
+Experience building real-time collaborative applications
+Designed secure RBAC and authentication systems
+Worked on software used by TV production workflows
+Experience with scalable database design
+Built internal workflow systems and management applications

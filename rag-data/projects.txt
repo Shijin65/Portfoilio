@@ -1,0 +1,51 @@
+PROJECTS
+
+Catershub:
+
+A full-stack staff management platform designed to manage workforce operations, staff assignments, and role-based access.
+
+Features:
+
+Authentication and authorization using JWT
+Role Based Access Control (RBAC)
+Staff management workflows
+Dynamic permissions system
+Dashboard analytics
+Responsive user interface
+
+Tech Stack:
+
+Next.js • TypeScript • Node.js • PostgreSQL • Tailwind CSS
+
+
+---------------------------------------------------------------------------------
+
+Broadcast Workflow Systems
+
+Worked on internal systems used by TV production teams.
+
+Responsibilities included:
+
+API design and implementation
+User role and permission management
+Workflow optimization
+Dashboard development
+Multi-user system architecture
+
+---------------------------------------------------------------------------------
+
+GoEat — Food Ordering Platform
+
+A complete food ordering application with customer and admin functionality.
+
+Features:
+
+Authentication system
+Admin dashboard
+Payment integration
+Order management
+Responsive design
+
+Tech Stack:
+
+React • Node.js • MongoDB • Stripe

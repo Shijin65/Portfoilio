@@ -1,9 +1,52 @@
-Professional Experience
+PROFESSIONAL EXPERIENCE
+Software Engineer
 
-Shijin works as a software engineer building internal systems and web applications.
+Empress Cybernetic Systems | Kochi, India
+Aug 2024 – Present
 
-He has worked on broadcast related software systems used by TV production teams.
+Responsibilities and achievements:
 
-His work includes designing backend APIs, implementing role based user systems, and developing modern web interfaces using React and Next.js.
+Leading complete application development from architecture planning to deployment and maintenance
+Designing scalable backend systems and database structures
+Building production-grade web applications supporting business operations
+Developing role-based user systems and secure authentication flows
+Implementing real-time multi-user functionality using Socket.IO
+Designing and maintaining REST APIs for complex workflows
+Working with deployment environments and CI/CD pipelines
+Utilizing AI-powered development tools to improve productivity
+Collaborating on internal systems used for workflow management and broadcast operations
 
-He focuses on creating reliable systems that support complex workflows and multi user collaboration.
+Key technologies:
+
+Next.js • React • Node.js • PostgreSQL • Socket.IO • Sequelize • JWT • RBAC • AWS
+
+---------------------------------------------------------------------------------
+
+Junior MERN Stack Developer
+
+Credot | Kozhikode, India
+Aug 2024
+
+Responsibilities:
+
+Built responsive user interfaces using React
+Worked on tracking systems and dashboard functionality
+Improved user experience and interface performance
+Collaborated with backend systems and API integration
+Projects
+CatersHub — Catering Staff Management Platform
+
+A full-stack staff management platform designed to manage workforce operations, staff assignments, and role-based access.
+
+Features:
+
+Authentication and authorization using JWT
+Role Based Access Control (RBAC)
+Staff management workflows
+Dynamic permissions system
+Dashboard analytics
+Responsive user interface
+
+Tech Stack:
+
+Next.js • TypeScript • Node.js • PostgreSQL • Tailwind CSS

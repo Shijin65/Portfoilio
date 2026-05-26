@@ -1,83 +1,109 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Server, Monitor, Terminal } from "lucide-react";
 
 const skillCategories = [
-    {
-        title: "Frontend Development",
-        icon: Monitor,
-        skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "Framer Motion"],
-        color: "blue"
-    },
-    {
-        title: "Backend Development",
-        icon: Server,
-        skills: ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "REST APIs", "Socket.IO"],
-        color: "indigo"
-    },
-    {
-        title: "Tools & DevOps",
-        icon: Terminal,
-        skills: ["Git", "Docker", "OpenSearch", "JWT", "Sequelize", "Postman"],
-        color: "cyan"
-    }
+  {
+    title: "Frontend",
+    skills: [
+      { name: "JavaScript (ES6)" },
+      { name: "TypeScript" },
+      { name: "React.js" },
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "MUI" },
+      { name: "Bootstrap" }
+    ]
+  },
+  {
+    title: "Backend",
+    skills: [
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: ".NET Core" }
+    ]
+  },
+  {
+    title: "Database",
+    skills: [
+      { name: "MongoDB" },
+      { name: "PostgreSQL" },
+      { name: "MS SQL Server" }
+    ]
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: "GitHub" },
+      { name: "Azure DevOps" },
+      { name: "AWS EC2" },
+      { name: "Nginx" },
+      { name: "IIS" },
+      { name: "CI/CD" }
+    ]
+  },
+  {
+    title: "Other",
+    skills: [
+      { name: "Socket.IO" },
+      { name: "JWT" },
+      { name: "SSO" },
+      { name: "RBAC" },
+      { name: "REST APIs" },
+      { name: "Redis" },
+      { name: "OpenSearch" },
+      { name: "Sequelize" },
+      { name: "Stripe" }
+    ]
+  }
 ];
 
 export default function Skills() {
-    return (
-        <section id="skills" className="py-20 sm:py-32 relative overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-12 sm:mb-20">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl sm:text-4xl font-black mb-4 sm:mb-6"
-                    >
-                        Skills & <span className="text-gradient">Expertise</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto px-4"
-                    >
-                        Equipped with a diverse range of technical skills across the full development stack.
-                    </motion.p>
-                </div>
+  return (
+    <section id="skills" className="py-24 bg-black relative">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Technical Arsenal</h2>
+          <p className="text-slate-400 text-lg">Technologies I work with on a daily basis</p>
+        </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
-                    {skillCategories.map((category, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ y: -10 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="group glass-dark p-8 sm:p-10 rounded-[2rem] hover:border-blue-500/50 transition-all duration-500"
-                        >
-                            <div className="flex items-center gap-4 sm:gap-6 mb-8 sm:mb-10">
-                                <div className={`p-3 sm:p-4 rounded-2xl bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500`}>
-                                    <category.icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                                </div>
-                                <h3 className="text-lg sm:text-xl font-bold text-white">{category.title}</h3>
-                            </div>
-
-                            <div className="flex flex-wrap gap-2">
-                                {category.skills.map((skill, sIdx) => (
-                                    <span
-                                        key={sIdx}
-                                        className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-white/30 transition-all cursor-default"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+          {skillCategories.map((category, catIndex) => (
+            <motion.div 
+              key={catIndex}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: catIndex * 0.1, duration: 0.5 }}
+              className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
+            >
+              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
+                {category.title}
+              </h3>
+              
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 + (index * 0.05), type: "spring", stiffness: 100 }}
+                    className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all cursor-default"
+                  >
+                    {skill.name}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
