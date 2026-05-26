@@ -63,7 +63,7 @@ export default function AIChat() {
     // Custom formatting for message text to handle basic lists, newlines, and bolding
     const FormattedMessage = ({ content }: { content: string }) => {
         const parts = content.split(/(\*\*.*?\*\*)/g);
-        
+
         return (
             <div className="whitespace-pre-wrap">
                 {parts.map((part, index) => {
@@ -86,10 +86,10 @@ export default function AIChat() {
                 className="group fixed bottom-6 right-6 p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all duration-300 z-50 flex items-center justify-center hover:shadow-blue-500/50 hover:scale-110"
             >
                 <Bot size={28} className="group-hover:rotate-12 transition-transform duration-300" />
-                
+
                 {/* Tooltip */}
                 <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-900 border border-slate-800 text-slate-200 text-sm font-medium px-4 py-2 rounded-xl shadow-2xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 hidden sm:block after:content-[''] after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-[6px] after:border-transparent after:border-l-slate-800">
-                    Talk to Shijin's personal AI
+                    Talk to Shijin&nbsp;personal&nbsp;AI
                 </div>
             </motion.button>
 
@@ -132,7 +132,7 @@ export default function AIChat() {
                                             <Bot size={24} />
                                         </div>
                                         <h4 className="text-base font-medium text-slate-700 dark:text-slate-300 mb-1">How can I help you?</h4>
-                                        <p className="text-xs max-w-sm mx-auto">Ask me anything about Shijin's portfolio, experience, skills, or projects.</p>
+                                        <p className="text-xs max-w-sm mx-auto">Ask me anything about Shijin&nbsp;s portfolio, experience, skills, or projects.</p>
                                     </div>
                                 )}
 

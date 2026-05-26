@@ -17,8 +17,9 @@ const projects = [
       "Staff management",
       "Production workflows"
     ],
-    github: "https://github.com/Shijin65",
-    demo: "#"
+    github1: "https://github.com/Shijin65/Staff-Track-X-client",
+    github2: "https://github.com/Shijin65/Staff-Track-X-Server",
+    demo: "https://staff-track-x-client.vercel.app/"
   },
   {
     title: "GoEat",
@@ -31,8 +32,8 @@ const projects = [
       "Authentication",
       "Admin dashboard"
     ],
-    github: "https://github.com/Shijin65",
-    demo: "#"
+    github: "https://github.com/Shijin65/GoEat",
+    demo: "https://goeat.netlify.app/"
   }
 ];
 
@@ -40,7 +41,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-black relative">
       <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -64,7 +65,7 @@ export default function Projects() {
             >
               {/* Gradient Border Glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-transparent to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-colors duration-500 rounded-3xl" />
-              
+
               {/* Image Section */}
               <div className={`relative h-64 w-full overflow-hidden bg-gradient-to-br ${project.fallbackBg}`}>
                 {/* Fallback pattern */}
@@ -107,24 +108,44 @@ export default function Projects() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                  <a 
-                    href={project.demo} 
-                    target="_blank" 
+                  <a
+                    href={project.demo}
+                    target="_blank"
                     rel="noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 bg-white text-black px-4 py-2.5 rounded-xl font-medium transition-colors hover:bg-slate-200"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
                   </a>
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 bg-white/5 text-white border border-white/10 px-4 py-2.5 rounded-xl font-medium transition-colors hover:bg-white/10"
-                  >
-                    <Github className="w-4 h-4" />
-                    Source
-                  </a>
+
+                  {project.github2 ? <div className="flex gap-3">
+                    <a
+                      href={project.github1}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-white/5 text-white border border-white/10 px-4 py-2.5 rounded-xl font-medium transition-colors hover:bg-white/10"
+                    >
+                      <Github className="w-4 h-4" />
+                      Client
+                    </a> <a
+                      href={project.github2}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-white/5 text-white border border-white/10 px-4 py-2.5 rounded-xl font-medium transition-colors hover:bg-white/10"
+                    >
+                      <Github className="w-4 h-4" />
+                      Server
+                    </a>
+                  </div> :
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-white/5 text-white border border-white/10 px-4 py-2.5 rounded-xl font-medium transition-colors hover:bg-white/10"
+                    >
+                      <Github className="w-4 h-4" />
+                      Source
+                    </a>}
                 </div>
               </div>
             </motion.div>

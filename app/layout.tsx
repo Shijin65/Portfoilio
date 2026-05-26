@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://shijin-puthur.com'),
   title: "Shijin Puthur",
   description: "Portfolio of Shijin Puthur, a Full Stack Engineer with 2+ years of experience building scalable real-time applications using React, Next.js, Node.js and cloud technologies.",
   openGraph: {
