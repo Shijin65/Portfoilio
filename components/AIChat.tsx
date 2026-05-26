@@ -83,9 +83,57 @@ export default function AIChat() {
                 initial={{ scale: 0 }}
                 animate={{ scale: isOpen ? 0 : 1 }}
                 onClick={() => setIsOpen(true)}
-                className="group fixed bottom-6 right-6 p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all duration-300 z-50 flex items-center justify-center hover:shadow-blue-500/50 hover:scale-110"
+                className="group fixed bottom-6 right-6 w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl transition-all duration-300 z-50 flex items-center justify-center hover:shadow-blue-500/50 hover:scale-110 p-0 border-0 bg-transparent"
             >
-                <Bot size={28} className="group-hover:rotate-12 transition-transform duration-300" />
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full group-hover:rotate-3 transition-transform duration-300 drop-shadow-xl">
+                    <defs>
+                        <clipPath id="circle-clip">
+                            <circle cx="50" cy="50" r="50" />
+                        </clipPath>
+                    </defs>
+                    <g clipPath="url(#circle-clip)">
+                        {/* Background */}
+                        <circle cx="50" cy="50" r="50" fill="#071022"/>
+                        
+                        {/* Left Arm (Raising Hand Animation) */}
+                        <g className="origin-[25px_80px] transition-transform duration-500 ease-out rotate-[80deg] translate-y-8 group-hover:rotate-[-25deg] group-hover:translate-y-0">
+                            <rect x="12" y="45" width="14" height="40" rx="7" fill="#F0F4F8"/>
+                            <rect x="14" y="47" width="10" height="12" rx="5" fill="#E2E8F0"/> {/* Hand palm detail */}
+                        </g>
+
+                        {/* Shoulders */}
+                        <path d="M22 100 C 22 70, 78 70, 78 100 Z" fill="#F0F4F8"/>
+                        
+                        {/* Neck */}
+                        <rect x="42" y="65" width="16" height="20" fill="#E2E8F0"/>
+                        
+                        {/* Ears */}
+                        <rect x="18" y="45" width="12" height="16" rx="4" fill="#E2E8F0"/>
+                        <rect x="70" y="45" width="12" height="16" rx="4" fill="#E2E8F0"/>
+                        
+                        {/* Head Outer */}
+                        <rect x="23" y="34" width="54" height="38" rx="19" fill="#F0F4F8"/>
+                        
+                        {/* Face Inner */}
+                        <rect x="31" y="42" width="38" height="22" rx="11" fill="#071022"/>
+                        
+                        {/* Eyes */}
+                        <circle cx="42" cy="53" r="3.5" fill="#12D6DF"/>
+                        <circle cx="58" cy="53" r="3.5" fill="#12D6DF"/>
+                        
+                        {/* Antenna Stem */}
+                        <rect x="48" y="24" width="4" height="12" fill="#F0F4F8"/>
+                        
+                        {/* Antenna Ball */}
+                        <circle cx="50" cy="22" r="5" fill="#F0F4F8"/>
+                    </g>
+                    
+                    {/* Speech Bubble */}
+                    <path d="M56 20 Q 56 6, 76 6 Q 96 6, 96 20 Q 96 34, 76 34 L 62 40 L 66 31 Q 56 30, 56 20 Z" fill="#12D6DF" className="transition-transform duration-500 origin-[60px_35px] scale-0 group-hover:scale-100" />
+                    
+                    {/* Text "HI!" */}
+                    <text x="76" y="20" fill="#071022" fontSize="18" fontWeight="900" fontFamily="sans-serif" textAnchor="middle" dy="0.35em" className="transition-opacity duration-500 opacity-0 group-hover:opacity-100 delay-100">HI!</text>
+                </svg>
 
                 {/* Tooltip */}
                 <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-900 border border-slate-800 text-slate-200 text-sm font-medium px-4 py-2 rounded-xl shadow-2xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 hidden sm:block after:content-[''] after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-[6px] after:border-transparent after:border-l-slate-800">
